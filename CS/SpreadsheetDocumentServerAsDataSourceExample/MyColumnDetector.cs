@@ -1,18 +1,22 @@
 ﻿using DevExpress.Spreadsheet;
 using System;
 
-namespace SpreadsheetDocumentServerAsDataSourceExample {
-#region #MyColumnDetector
-    class MyColumnDetector : IDataSourceColumnTypeDetector {
-        public string GetColumnName(int index, int offset, Range range) {
+namespace SpreadsheetDocumentServerAsDataSourceExample
+{
+    #region #MyColumnDetector
+    class MyColumnDetector : IDataSourceColumnTypeDetector
+    {
+        public string GetColumnName(int index, int offset, CellRange range)
+        {
             return range[-1, offset].DisplayText;
         }
 
-        public Type GetColumnType(int index, int offset, Range range) {
+        public Type GetColumnType(int index, int offset, CellRange range)
+        {
             Type defaultType = typeof(string);
 
             if (offset == 13) return typeof(System.Drawing.Bitmap);
-            
+
             CellValue value = range[0, offset].Value;
             if (value.IsText) return typeof(string);
             if (value.IsBoolean) return typeof(bool);
@@ -21,5 +25,5 @@ namespace SpreadsheetDocumentServerAsDataSourceExample {
             return defaultType;
         }
     }
-#endregion #MyColumnDetector
+    #endregion #MyColumnDetector
 }

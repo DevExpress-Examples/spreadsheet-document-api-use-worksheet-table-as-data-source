@@ -6,11 +6,11 @@ Namespace SpreadsheetDocumentServerAsDataSourceExample
     Friend Class MyColumnDetector
         Implements IDataSourceColumnTypeDetector
 
-        Public Function GetColumnName(ByVal index As Integer, ByVal offset As Integer, ByVal range As Range) As String Implements IDataSourceColumnTypeDetector.GetColumnName
+        Public Function GetColumnName(ByVal index As Integer, ByVal offset As Integer, ByVal range As CellRange) As String Implements IDataSourceColumnTypeDetector.GetColumnName
             Return range(-1, offset).DisplayText
         End Function
 
-        Public Function GetColumnType(ByVal index As Integer, ByVal offset As Integer, ByVal range As Range) As Type Implements IDataSourceColumnTypeDetector.GetColumnType
+        Public Function GetColumnType(ByVal index As Integer, ByVal offset As Integer, ByVal range As CellRange) As Type Implements IDataSourceColumnTypeDetector.GetColumnType
             Dim defaultType As Type = GetType(String)
 
             If offset = 13 Then
