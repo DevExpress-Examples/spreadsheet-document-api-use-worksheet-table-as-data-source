@@ -13,7 +13,7 @@ The following example demonstrates how to use a [worksheet table](https://docs.d
 
 In this example, a worksheet containing a table with data is loaded in a [Workbook](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Spreadsheet.Workbook) instance. The [Table.GetDataSource](https://docs.devexpress.com/OfficeFileAPI/devexpress.spreadsheet.table.getdatasource.overloads) method returns a data source which is subsequently used to create a report in a RichEditControl.
 
-To modify worksheet data before they are exposed as data source fields, the application utilizes a custom converter which implements the [IBindingRangeValueConverter](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Spreadsheet.IBindingRangeValueConverter) interface. The **MyPictureProvider** converter finds a picture in a worksheet by its name and returns a picture bitmap instead of a name specified in a worksheet column.
+To modify worksheet data before they are exposed as data source fields, the application utilizes a custom converter that implements the [IBindingRangeValueConverter](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Spreadsheet.IBindingRangeValueConverter) interface. The **MyPictureProvider** converter finds a picture in a worksheet by its name and returns a picture bitmap instead of a name specified in a worksheet column.
 The custom **MyColumnDetector** object which implements the [IDataSourceColumnTypeDetector](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Spreadsheet.IDataSourceColumnTypeDetector) interface is used to specify column names and types.  
 Note that a table required to visualize the data in the **RichEditControl** component is created in code at runtime.
 
@@ -25,7 +25,6 @@ Note that a table required to visualize the data in the **RichEditControl** comp
 
 ## More Examples
 
-* [How to: Bind a GridControl to the Worksheet Data](https://github.com/DevExpress-Examples/how-to-bind-a-grid-control-to-the-worksheet-data-t461090)
 * [How to: Bind a Worksheet to a Generic List or a BindingList Data Source](https://github.com/DevExpress-Examples/how-to-bind-a-worksheet-to-a-generic-list-or-a-bindinglist-data-source)
 
 ## Documentation
