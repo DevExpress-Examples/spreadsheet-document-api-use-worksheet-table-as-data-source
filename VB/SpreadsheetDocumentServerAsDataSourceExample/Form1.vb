@@ -48,9 +48,9 @@ Namespace SpreadsheetDocumentServerAsDataSourceExample
             table.Borders.InsideHorizontalBorder.LineColor = Color.DarkBlue
             table.Borders.InsideVerticalBorder.LineColor = Color.DarkBlue
             table.Borders.InsideHorizontalBorder.LineThickness = 0.5F
-            table.Borders.InsideHorizontalBorder.LineStyle = TableBorderLineStyle.Single
+            table.Borders.InsideHorizontalBorder.LineStyle = BorderLineStyle.Single
             table.Borders.InsideVerticalBorder.LineThickness = 0.5F
-            table.Borders.InsideVerticalBorder.LineStyle = TableBorderLineStyle.Single
+            table.Borders.InsideVerticalBorder.LineStyle = BorderLineStyle.Single
 
             table.LeftPadding = Units.InchesToDocumentsF(0.01F)
 
