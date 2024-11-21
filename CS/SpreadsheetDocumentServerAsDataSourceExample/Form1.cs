@@ -54,9 +54,9 @@ namespace SpreadsheetDocumentServerAsDataSourceExample
             table.Borders.InsideHorizontalBorder.LineColor = Color.DarkBlue;
             table.Borders.InsideVerticalBorder.LineColor = Color.DarkBlue;
             table.Borders.InsideHorizontalBorder.LineThickness = 0.5f;
-            table.Borders.InsideHorizontalBorder.LineStyle = BorderLineStyle.Single;
+            table.Borders.InsideHorizontalBorder.LineStyle = DevExpress.XtraRichEdit.API.Native.BorderLineStyle.Single;
             table.Borders.InsideVerticalBorder.LineThickness = 0.5f;
-            table.Borders.InsideVerticalBorder.LineStyle = BorderLineStyle.Single;
+            table.Borders.InsideVerticalBorder.LineStyle = DevExpress.XtraRichEdit.API.Native.BorderLineStyle.Single;
 
             table.LeftPadding = Units.InchesToDocumentsF(0.01f);
 
