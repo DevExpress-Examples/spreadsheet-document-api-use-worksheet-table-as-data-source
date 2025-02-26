@@ -1,4 +1,5 @@
-﻿using DevExpress.Office.Utils;
+﻿using DevExpress.Drawing;
+using DevExpress.Office.Utils;
 using DevExpress.Spreadsheet;
 using DevExpress.XtraRichEdit.API.Native;
 using DevExpress.XtraSpreadsheet.Model;
@@ -20,7 +21,7 @@ namespace SpreadsheetDocumentServerAsDataSourceExample
         {
             using (Workbook wb = new Workbook())
             {
-                wb.LoadDocument("Employees.xlsx");
+                wb.LoadDocument("..\\..\\..\\Employees.xlsx");
                 RangeDataSourceOptions options = new RangeDataSourceOptions();
                 options.UseFirstRowAsHeader = true;
                 options.CellValueConverter = new MyPictureProvider(wb.Worksheets[0]);
@@ -105,8 +106,8 @@ namespace SpreadsheetDocumentServerAsDataSourceExample
                 {
                     var row = rows[rowIndex - 1];
                     var value = columns[cellIndex].GetValue(row);
-                    if (value is Bitmap bitmap)
-                        document.Images.Insert(cell.Range.Start, bitmap);
+                    if (value is DXImage image)
+                        document.Images.Insert(cell.Range.Start, image);
                     else
                         document.InsertText(cell.Range.Start, (columns[cellIndex].GetValue(row) as CellValue).TextValue);
                 }

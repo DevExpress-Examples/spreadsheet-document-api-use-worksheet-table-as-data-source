@@ -1,11 +1,10 @@
-﻿Imports DevExpress.Office.Utils
+﻿Imports System.ComponentModel
+Imports System.Drawing
+Imports DevExpress.Drawing
+Imports DevExpress.Office.Utils
 Imports DevExpress.Spreadsheet
 Imports DevExpress.XtraRichEdit.API.Native
 Imports DevExpress.XtraSpreadsheet.Model
-Imports System
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Drawing
 
 Namespace SpreadsheetDocumentServerAsDataSourceExample
     Partial Public Class Form1
@@ -16,7 +15,7 @@ Namespace SpreadsheetDocumentServerAsDataSourceExample
 
         Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
             Using wb As Workbook = New Workbook()
-                wb.LoadDocument("Employees.xlsx")
+                wb.LoadDocument("..\..\..\Employees.xlsx")
                 Dim options As RangeDataSourceOptions = New RangeDataSourceOptions()
                 options.UseFirstRowAsHeader = True
                 options.CellValueConverter = New MyPictureProvider(wb.Worksheets(0))
@@ -92,10 +91,10 @@ Namespace SpreadsheetDocumentServerAsDataSourceExample
                                       Dim row = rows(rowIndex - 1)
                                       Dim value = columns(CInt(cellIndex)).GetValue(row)
 
-                                      If value.GetType() Is GetType(Bitmap) Then
-                                          document.Images.Insert(cell.Range.Start, CType(value, Bitmap))
+                                      If value.GetType() Is GetType(DXBitmap) Then
+                                          document.Images.Insert(cell.Range.Start, CType(value, DXImage))
                                       Else
-                                          document.InsertText(cell.Range.Start, TryCast(columns(CInt(cellIndex)).GetValue(row), CellValue).TextValue)
+                                          document.InsertText(cell.Range.Start, (TryCast(columns(cellIndex).GetValue(row), CellValue)).TextValue)
                                       End If
                                   End If
                               End Sub)

@@ -1,16 +1,14 @@
-﻿Imports System
-Imports DevExpress.Spreadsheet
-Imports System.Collections.Generic
-Imports System.Drawing
-Imports System.IO
+﻿Imports System.IO
+Imports DevExpress.Drawing
 Imports DevExpress.Office.Utils
+Imports DevExpress.Spreadsheet
 
 Namespace SpreadsheetDocumentServerAsDataSourceExample
-    #Region "#MyPictureProvider"
+#Region "#MyPictureProvider"
     Public Class MyPictureProvider
         Implements IBindingRangeValueConverter
 
-        Private pictures As Dictionary(Of String, Bitmap)
+        Private pictures As Dictionary(Of String, DXImage)
 
         Public Sub New(ByVal sheet As Worksheet)
             pictures = GetPictures(sheet)
@@ -18,7 +16,7 @@ Namespace SpreadsheetDocumentServerAsDataSourceExample
 
         Public Function ConvertToObject(ByVal value As CellValue, ByVal requiredType As Type, ByVal columnIndex As Integer) As Object Implements IBindingRangeValueConverter.ConvertToObject
             If columnIndex = 13 Then
-                Dim pic As Bitmap = Nothing
+                Dim pic As DXImage = Nothing
                 If pictures.TryGetValue(value.TextValue, pic) Then
                     Return pic
                 End If
@@ -30,13 +28,13 @@ Namespace SpreadsheetDocumentServerAsDataSourceExample
             Return CellValue.Empty
         End Function
 
-        Public Function GetPictures(ByVal sheet As Worksheet) As Dictionary(Of String, Bitmap)
-            Dim employeePictures As Dictionary(Of String, Bitmap) = New Dictionary(Of String, System.Drawing.Bitmap)()
+        Public Function GetPictures(ByVal sheet As Worksheet) As Dictionary(Of String, DXImage)
+            Dim employeePictures As Dictionary(Of String, DXImage) = New Dictionary(Of String, DXImage)()
             For Each pic As Picture In sheet.Pictures
-                employeePictures.Add(pic.Name, New Bitmap(New MemoryStream(pic.Image.GetImageBytes(OfficeImageFormat.Bmp))))
+                employeePictures.Add(pic.Name, DXImage.FromStream(New MemoryStream(pic.Image.GetImageBytes(OfficeImageFormat.Bmp))))
             Next pic
             Return employeePictures
         End Function
     End Class
-    #End Region ' #MyPictureProvider
+#End Region
 End Namespace

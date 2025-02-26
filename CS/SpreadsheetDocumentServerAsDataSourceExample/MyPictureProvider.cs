@@ -1,16 +1,16 @@
 ﻿using System;
 using DevExpress.Spreadsheet;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using DevExpress.Office.Utils;
+using DevExpress.Drawing;
 
 namespace SpreadsheetDocumentServerAsDataSourceExample
 {
     #region #MyPictureProvider
     public class MyPictureProvider : IBindingRangeValueConverter
     {
-        Dictionary<string, Bitmap> pictures;
+        Dictionary<string, DXImage> pictures;
 
         public MyPictureProvider(Worksheet sheet)
         {
@@ -21,7 +21,7 @@ namespace SpreadsheetDocumentServerAsDataSourceExample
         {
             if (columnIndex == 13)
             {
-                Bitmap pic;
+                DXImage pic;
                 if (pictures.TryGetValue(value.TextValue, out pic))
                     return pic;
             }
@@ -33,12 +33,12 @@ namespace SpreadsheetDocumentServerAsDataSourceExample
             return CellValue.Empty;
         }
 
-        public Dictionary<string, Bitmap> GetPictures(Worksheet sheet)
+        public Dictionary<string, DXImage> GetPictures(Worksheet sheet)
         {
-            Dictionary<string, Bitmap> employeePictures = new Dictionary<string, System.Drawing.Bitmap>();
+            Dictionary<string, DevExpress.Drawing.DXImage> employeePictures = new Dictionary<string, DevExpress.Drawing.DXImage>();
             foreach (Picture pic in sheet.Pictures)
             {
-                employeePictures.Add(pic.Name, new Bitmap(new MemoryStream(pic.Image.GetImageBytes(OfficeImageFormat.Bmp))));
+                employeePictures.Add(pic.Name, DXImage.FromStream(new MemoryStream(pic.Image.GetImageBytes(OfficeImageFormat.Bmp))));
             }
             return employeePictures;
         }

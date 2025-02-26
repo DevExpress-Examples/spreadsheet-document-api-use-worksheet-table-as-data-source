@@ -1,5 +1,4 @@
 ﻿Imports DevExpress.Spreadsheet
-Imports System
 
 Namespace SpreadsheetDocumentServerAsDataSourceExample
 #Region "#MyColumnDetector"
@@ -14,7 +13,7 @@ Namespace SpreadsheetDocumentServerAsDataSourceExample
             Dim defaultType As Type = GetType(String)
 
             If offset = 13 Then
-                Return GetType(System.Drawing.Bitmap)
+                Return GetType(DevExpress.Drawing.DXImage)
             End If
 
             Dim value As CellValue = range(0, offset).Value
@@ -33,5 +32,5 @@ Namespace SpreadsheetDocumentServerAsDataSourceExample
             Return defaultType
         End Function
     End Class
-#End Region ' #MyColumnDetector
+#End Region
 End Namespace

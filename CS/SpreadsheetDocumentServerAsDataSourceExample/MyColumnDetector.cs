@@ -15,7 +15,7 @@ namespace SpreadsheetDocumentServerAsDataSourceExample
         {
             Type defaultType = typeof(string);
 
-            if (offset == 13) return typeof(System.Drawing.Bitmap);
+            if (offset == 13) return typeof(DevExpress.Drawing.DXImage);
 
             CellValue value = range[0, offset].Value;
             if (value.IsText) return typeof(string);
