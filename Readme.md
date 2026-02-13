@@ -14,7 +14,7 @@ Note that a [Snap report template](https://docs.devexpress.com/WindowsForms/1137
 
 ![](https://raw.githubusercontent.com/DevExpress-Examples/document-server-how-to-use-a-worksheet-as-a-data-source-for-the-snap-report-t518070/17.1.3+/media/f799c6c5-4065-11e7-80c0-00155d624807.png)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=spreadsheet-document-api-use-worksheet-table-as-data-source&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=spreadsheet-document-api-use-worksheet-table-as-data-source&~~~was_helpful=no)
 
